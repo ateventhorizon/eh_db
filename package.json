@@ -1,0 +1,28 @@
+{
+  "name": "eh_db",
+  "version": "1.0.0",
+  "description": "database driver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ateventhorizon/eh_db.git"
+  },
+  "author": "Dado",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ateventhorizon/eh_db/issues"
+  },
+  "homepage": "https://github.com/ateventhorizon/eh_db#readme",
+  "dependencies": {
+    "delay": "^4.3.0",
+    "eh_config": "^1.0.0",
+    "eh_logger": "^1.0.1",
+    "md5": "^2.2.1",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.7",
+    "streamifier": "^0.1.1"
+  }
+}
