@@ -239,7 +239,7 @@ exports.upsertUniqueXValue = async (model, query) => {
       }
     }
   };
-  const ret = await db.upsert(model, queryOnly, data);
+  const ret = await exports.upsert(model, queryOnly, data);
 
   let newValues = [];
   for (let index = 0; index < ret.values.length - 1; index++) {
