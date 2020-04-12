@@ -225,3 +225,33 @@ exports.upsert = async ( model, query = {}, data, options = {}) => {
   }
 };
 
+exports.upsertUniqueXValue = async (model, query) => {
+  let queryOnly = query;
+  const values = query.values;
+  delete queryOnly.values;
+
+  const data = {
+    ...query,
+    $push: {
+      values: {
+        $each: values,
+        $sort: {x: 1}
+      }
+    }
+  };
+  const ret = await db.upsert(model, queryOnly, data);
+
+  let newValues = [];
+  for (let index = 0; index < ret.values.length - 1; index++) {
+    if (ret.values[index].x !== ret.values[index + 1].x) {
+      newValues.push(ret.values[index]);
+    }
+  }
+  newValues.push(ret.values[ret.values.length - 1]);
+
+  await model.updateOne(query, {
+    $set: {
+      values: newValues,
+    }
+  });
+};
