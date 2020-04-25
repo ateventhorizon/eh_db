@@ -1,6 +1,6 @@
 {
   "name": "eh_db",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "database driver",
   "main": "index.js",
   "scripts": {

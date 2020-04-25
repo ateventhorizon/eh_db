@@ -28,7 +28,8 @@ exports.initDB = async () => {
       await mongoose.connect(mongoDBUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: false
+        useFindAndModify: false,
+        useCreateIndex:true
       });
       exports.bucketSourceAssets = new mongodb.GridFSBucket(mongoose.connection.client.db(globalConfig.MongoDBdbName), {bucketName: "fs_assets_to_elaborate"});
       exports.bucketEntities = new mongodb.GridFSBucket(mongoose.connection.client.db(globalConfig.MongoDBdbName), {bucketName: "fs_entity_assets"});
